@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ControleEstoque.View.PaginaAlterarEstoque">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Id: " FontSize="Small" TextColor="Black" Margin="0,0,2,0" FontAttributes="Bold"/>
+                <Label Text="{Binding Id}" FontSize="Small" TextColor="Black" Margin="0,0,2,0" LineBreakMode="NoWrap"/>
+                <Label Text="Nome: " FontSize="Small" TextColor="Black" Margin="10,0,2,0" FontAttributes="Bold" />
+                <Label Text="{Binding Nome}" FontSize="Small" TextColor="Black" Margin="0,0,2,0" LineBreakMode="NoWrap"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

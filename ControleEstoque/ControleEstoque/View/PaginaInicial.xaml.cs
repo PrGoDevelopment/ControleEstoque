@@ -45,12 +45,17 @@ namespace ControleEstoque.View
             });
         }
 
-        private void ListaProdutos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void ListaProdutos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Device.BeginInvokeOnMainThread(() =>
+            if (ListaProdutos.SelectedItem != null)
             {
-                
-            });
+                var detailPage = new PaginaAlterarEstoque()
+                {
+                    BindingContext = e.SelectedItem as Model.T_ESTOQUE
+                };
+                ListaProdutos.SelectedItem = null;
+                await Navigation.PushModalAsync(detailPage);
+            }
         }
     }
 }
