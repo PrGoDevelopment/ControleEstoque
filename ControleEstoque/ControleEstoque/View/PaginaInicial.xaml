@@ -3,10 +3,71 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ControleEstoque.View.PaginaInicial">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="3,0">
+            <StackLayout Orientation="Horizontal" Margin="3" HorizontalOptions="Center">
+                <Label Text="Controle Estoque" FontSize="20" VerticalOptions="Center" TextColor="Black"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="1,3" HorizontalOptions="Center">
+                <Entry x:Name="entr_codBarras" Placeholder="Código de barras / Interno" PlaceholderColor="#B9B9B9" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
+                <!--<Button x:Name="btn_pesquisa" Text="Pesquisar" BorderWidth="2" FontAttributes="Bold" CornerRadius="15" TextColor="Black" FontSize="Small" BorderColor="#B6B6B6" BackgroundColor="#EEEEEE" Clicked="LeituraManual" ScaleY="0.7" ScaleX="0.7"/>-->
+                <!--<Switch x:Name="swt_cod" IsToggled="false" Margin="5,0,0,0" Toggled="swt_cod_Toggled"/>-->
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="10,5,10,8">
+                <Label Text="Cód. Barras: " FontSize="16" VerticalOptions="Center"/>
+                <Label x:Name="lbl_CodBarras" Text="" FontSize="16" VerticalOptions="Center" FontAttributes="Bold"/>
+            </StackLayout>
+
+
+            <Label Text="Produtos encontrados"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
+
+            <ListView x:Name="ListaProdutos" HasUnevenRows="True" ItemSelected="ListaProdutos_ItemSelected" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout  Orientation="Horizontal" VerticalOptions="FillAndExpand" Margin="0,5,0,5">
+
+                                <Grid Margin="2">
+
+                                    <!-- Colunas -->
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Linhas -->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="1"/>
+                                    </Grid.RowDefinitions>
+
+                                    <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="5">
+                                        <!-- Código/Descricao -->
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Cód. interno: " FontSize="Small" TextColor="Black" Margin="0,0,2,0"/>
+                                            <Label Text="{Binding PR_COD}" FontSize="Small" TextColor="Black" Margin="0,0,2,0" LineBreakMode="NoWrap"/>
+                                            <Label Text="Cód. Unidade: " FontSize="Small" TextColor="Black" Margin="10,0,2,0"/>
+                                            <Label Text="{Binding UN_COD}" FontSize="Small" TextColor="Black" Margin="0,0,2,0" LineBreakMode="NoWrap"/>
+                                        </StackLayout>
+
+                                        <StackLayout  Orientation="Horizontal">
+                                            <Label Text="Descrição: " FontSize="Small" TextColor="Black" Margin="0,0,2,0"/>
+                                            <Label Text="{Binding PR_DESCRIÇÃO}" FontSize="Small" TextColor="Black" FontAttributes="Bold" Margin="0" LineBreakMode="TailTruncation" WidthRequest="190"/>
+                                        </StackLayout>
+                                        <!--<StackLayout Orientation="Horizontal" IsVisible="{Binding IsVisible}">
+                                                    <Label Text="15/11/19 à 30/11/19" FontSize="Large" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                                                </StackLayout>-->
+                                    </StackLayout>
+                                    <BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Red" WidthRequest="500"/>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView >
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

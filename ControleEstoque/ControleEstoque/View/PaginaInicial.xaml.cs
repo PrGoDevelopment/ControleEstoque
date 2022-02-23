@@ -16,5 +16,10 @@ namespace ControleEstoque.View
         {
             InitializeComponent();
         }
+
+        private void ListaProdutos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
     }
 }
