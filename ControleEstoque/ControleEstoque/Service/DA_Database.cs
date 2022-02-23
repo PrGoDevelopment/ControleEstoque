@@ -22,18 +22,17 @@ namespace ControleEstoque.Service
             var arquivo = pasta.CreateFile(DbFileName, CreationCollisionOption.OpenIfExists);
             //ABRE O BD
             sqliteconnection = new SQLiteAsyncConnection(arquivo.Path);
-
-            Create_T_ESTOQUE().Wait();
         }
 
-        private Task<int> Create_T_ESTOQUE()
+        public async Task<bool> insertEstoque(Model.T_ESTOQUE estoque)
         {
-            return sqliteconnection.ExecuteAsync("CREATE TABLE if not exists T_ESTOQUE ( " +
-                                                    "Id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                                                    "Nome varchar(200)," +
-                                                    "Quantidade INTEGER" +
-                                                    ");"
-                                                 );
+            await sqliteconnection.QueryAsync<Model.T_ESTOQUE>("INSERT OR IGNORE INTO T_ESTOQUE (Nome, Quantidade) VALUES('" + estoque.Nome + "', '" + estoque.Quantidade + "')");
+            return true;
+        }
+
+        public Task<List<Model.T_ESTOQUE>> getEstoque()
+        {
+            return sqliteconnection.Table<Model.T_ESTOQUE>().ToListAsync();
         }
     }
 }

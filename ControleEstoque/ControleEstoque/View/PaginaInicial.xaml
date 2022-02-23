@@ -47,15 +47,15 @@
                                     <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="5">
                                         <!-- Código/Descricao -->
                                         <StackLayout Orientation="Horizontal">
-                                            <Label Text="Cód. interno: " FontSize="Small" TextColor="Black" Margin="0,0,2,0"/>
-                                            <Label Text="{Binding PR_COD}" FontSize="Small" TextColor="Black" Margin="0,0,2,0" LineBreakMode="NoWrap"/>
-                                            <Label Text="Cód. Unidade: " FontSize="Small" TextColor="Black" Margin="10,0,2,0"/>
-                                            <Label Text="{Binding UN_COD}" FontSize="Small" TextColor="Black" Margin="0,0,2,0" LineBreakMode="NoWrap"/>
+                                            <Label Text="Id: " FontSize="Small" TextColor="Black" Margin="0,0,2,0" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Id}" FontSize="Small" TextColor="Black" Margin="0,0,2,0" LineBreakMode="NoWrap"/>
+                                            <Label Text="Nome: " FontSize="Small" TextColor="Black" Margin="10,0,2,0" FontAttributes="Bold" />
+                                            <Label Text="{Binding Nome}" FontSize="Small" TextColor="Black" Margin="0,0,2,0" LineBreakMode="NoWrap"/>
                                         </StackLayout>
 
                                         <StackLayout  Orientation="Horizontal">
-                                            <Label Text="Descrição: " FontSize="Small" TextColor="Black" Margin="0,0,2,0"/>
-                                            <Label Text="{Binding PR_DESCRIÇÃO}" FontSize="Small" TextColor="Black" FontAttributes="Bold" Margin="0" LineBreakMode="TailTruncation" WidthRequest="190"/>
+                                            <Label Text="Quantidade: " FontSize="Small" TextColor="Black" Margin="0,0,2,0" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Quantidade}" FontSize="Small" TextColor="Black" Margin="0" LineBreakMode="TailTruncation" WidthRequest="190"/>
                                         </StackLayout>
                                         <!--<StackLayout Orientation="Horizontal" IsVisible="{Binding IsVisible}">
                                                     <Label Text="15/11/19 à 30/11/19" FontSize="Large" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" VerticalTextAlignment="Center"/>
