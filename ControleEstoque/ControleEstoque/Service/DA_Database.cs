@@ -24,15 +24,36 @@ namespace ControleEstoque.Service
             sqliteconnection = new SQLiteAsyncConnection(arquivo.Path);
         }
 
-        public async Task<bool> insertEstoque(Model.T_ESTOQUE estoque)
-        {
-            await sqliteconnection.QueryAsync<Model.T_ESTOQUE>("INSERT OR IGNORE INTO T_ESTOQUE (Nome, Quantidade) VALUES('" + estoque.Nome + "', '" + estoque.Quantidade + "')");
-            return true;
-        }
-
         public Task<List<Model.T_ESTOQUE>> getEstoque()
         {
             return sqliteconnection.Table<Model.T_ESTOQUE>().ToListAsync();
+        }
+
+        public async Task<bool> insertEstoque(Model.T_ESTOQUE estoque)
+        {
+            try
+            {
+                await sqliteconnection.QueryAsync<Model.T_ESTOQUE>("INSERT OR IGNORE INTO T_ESTOQUE (Nome, Quantidade) VALUES('" + estoque.Nome + "', '" + estoque.Quantidade + "')");
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> Update_Opcoes(Model.T_ESTOQUE estoque)
+        {
+            try
+            {
+                await sqliteconnection.QueryAsync<Model.T_ESTOQUE>("UPDATE OPCOES SET server = '" + estoque.Quantidade + "' WHERE id = '" + estoque.Id.ToString() + "'");
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

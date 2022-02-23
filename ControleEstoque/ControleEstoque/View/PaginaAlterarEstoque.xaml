@@ -18,7 +18,7 @@
             <StackLayout Orientation="Horizontal" Margin="1,3" HorizontalOptions="Center">
                 <Label Text="Alterar quantidade: " FontSize="Small" TextColor="Black" Margin="0,0,2,0" FontAttributes="Bold"/>
                 <Entry x:Name="entr_alterarEstoque" Placeholder="Qtd" PlaceholderColor="#B9B9B9" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
-                <Button x:Name="btn_alterarEstoque" Text="Salvar" BorderWidth="2" FontAttributes="Bold" CornerRadius="15" TextColor="Black" FontSize="Small" BorderColor="#B6B6B6" BackgroundColor="#EEEEEE" Clicked="AlterarEstoque" ScaleY="0.7" ScaleX="0.7"/>
+                <Button x:Name="btn_alterarEstoque" Text="Salvar" BorderWidth="2" FontAttributes="Bold" CornerRadius="15" TextColor="Black" FontSize="Medium" BorderColor="#B6B6B6" BackgroundColor="#EEEEEE" Clicked="AlterarEstoque" ScaleY="0.8" ScaleX="0.8"/>
                 <!--<Switch x:Name="swt_cod" IsToggled="false" Margin="5,0,0,0" Toggled="swt_cod_Toggled"/>-->
             </StackLayout>
         </StackLayout>
