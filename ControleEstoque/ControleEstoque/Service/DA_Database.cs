@@ -42,11 +42,11 @@ namespace ControleEstoque.Service
             }
         }
 
-        public async Task<bool> Update_Opcoes(Model.T_ESTOQUE estoque)
+        public async Task<bool> updateEstoque(Model.T_ESTOQUE estoque)
         {
             try
             {
-                await sqliteconnection.QueryAsync<Model.T_ESTOQUE>("UPDATE OPCOES SET server = '" + estoque.Quantidade + "' WHERE id = '" + estoque.Id.ToString() + "'");
+                await sqliteconnection.QueryAsync<Model.T_ESTOQUE>("UPDATE T_ESTOQUE SET Quantidade = '" + estoque.Quantidade + "' WHERE Id = '" + estoque.Id.ToString() + "'");
 
                 return true;
             }

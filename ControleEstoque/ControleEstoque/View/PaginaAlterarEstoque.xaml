@@ -7,17 +7,17 @@
             <StackLayout Orientation="Horizontal" Margin="3,15" HorizontalOptions="Center">
                 <Label Text="Alterar Estoque" FontSize="20" VerticalOptions="Center" TextColor="Black"/>
             </StackLayout>
-            
-            <StackLayout Orientation="Horizontal">
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                 <Label Text="Id: " FontSize="Small" TextColor="Black" Margin="0,0,2,0" FontAttributes="Bold"/>
-                <Label Text="{Binding Id}" FontSize="Small" TextColor="Black" Margin="0,0,2,0" LineBreakMode="NoWrap"/>
+                <Label Text="{Binding Id}" x:Name="lbl_Id" FontSize="Small" TextColor="Black" Margin="0,0,2,0" LineBreakMode="NoWrap"/>
                 <Label Text="Nome: " FontSize="Small" TextColor="Black" Margin="10,0,2,0" FontAttributes="Bold" />
-                <Label Text="{Binding Nome}" FontSize="Small" TextColor="Black" Margin="0,0,2,0" LineBreakMode="NoWrap"/>
+                <Label Text="{Binding Nome}" x:Name="lbl_Nome" FontSize="Small" TextColor="Black" Margin="0,0,2,0" LineBreakMode="NoWrap"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" Margin="1,3" HorizontalOptions="Center">
-                <Label Text="Alterar quantidade: " FontSize="Small" TextColor="Black" Margin="0,0,2,0" FontAttributes="Bold"/>
-                <Entry x:Name="entr_alterarEstoque" Placeholder="Qtd" PlaceholderColor="#B9B9B9" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
+                <Label Text="Alterar quantidade: " FontSize="Medium" TextColor="Black" Margin="0,0,2,0" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                <Entry Text="{Binding Quantidade}" x:Name="entr_alterarEstoque" Placeholder="Qtd" PlaceholderColor="#B9B9B9" HorizontalTextAlignment="Center" Keyboard="Numeric" WidthRequest="60"/>
                 <Button x:Name="btn_alterarEstoque" Text="Salvar" BorderWidth="2" FontAttributes="Bold" CornerRadius="15" TextColor="Black" FontSize="Medium" BorderColor="#B6B6B6" BackgroundColor="#EEEEEE" Clicked="AlterarEstoque" ScaleY="0.8" ScaleX="0.8"/>
                 <!--<Switch x:Name="swt_cod" IsToggled="false" Margin="5,0,0,0" Toggled="swt_cod_Toggled"/>-->
             </StackLayout>

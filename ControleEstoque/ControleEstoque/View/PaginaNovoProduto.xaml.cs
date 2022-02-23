@@ -23,7 +23,6 @@ namespace ControleEstoque.View
         {
             Device.BeginInvokeOnMainThread(async () =>
             {
-                bool manterZero = false;
                 estoque = new Model.T_ESTOQUE();
 
                 estoque.Nome = entr_nomeProduto.Text;
