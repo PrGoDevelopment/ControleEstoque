@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ControleEstoque.View.PaginaNovoProduto">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="3,15" HorizontalOptions="Center">
+                <Label Text="Novo Produto" FontSize="20" VerticalOptions="Center" TextColor="Black"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal" Margin="1,3" HorizontalOptions="Center">
+                <Label Text="Nome: " FontSize="Small" TextColor="Black" Margin="0,0,2,0" FontAttributes="Bold"/>
+                <Entry x:Name="entr_nomeProduto" Placeholder="Nome do produto" PlaceholderColor="#B9B9B9" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
+                <!--<Switch x:Name="swt_cod" IsToggled="false" Margin="5,0,0,0" Toggled="swt_cod_Toggled"/>-->
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="1,3" HorizontalOptions="Center">
+                <Label Text="Quantidade: " FontSize="Small" TextColor="Black" Margin="0,0,2,0" FontAttributes="Bold"/>
+                <Entry x:Name="entr_qtdProduto" Placeholder="Quantidade" PlaceholderColor="#B9B9B9" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
+                <!--<Switch x:Name="swt_cod" IsToggled="false" Margin="5,0,0,0" Toggled="swt_cod_Toggled"/>-->
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="1,3" HorizontalOptions="Center">
+                <Button x:Name="btn_salvar" Text="Salvar" BorderWidth="2" FontAttributes="Bold" CornerRadius="15" TextColor="Black" FontSize="Small" BorderColor="#B6B6B6" BackgroundColor="#EEEEEE" Clicked="salvarProduto" ScaleY="0.7" ScaleX="0.7"/>
+                <!--<Switch x:Name="swt_cod" IsToggled="false" Margin="5,0,0,0" Toggled="swt_cod_Toggled"/>-->
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

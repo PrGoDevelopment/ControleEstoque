@@ -4,25 +4,9 @@
              x:Class="ControleEstoque.View.PaginaInicial">
     <ContentPage.Content>
         <StackLayout Padding="3,0">
-            <StackLayout Orientation="Horizontal" Margin="3" HorizontalOptions="Center">
+            <StackLayout Orientation="Horizontal" Margin="3,15" HorizontalOptions="Center">
                 <Label Text="Controle Estoque" FontSize="20" VerticalOptions="Center" TextColor="Black"/>
             </StackLayout>
-
-            <StackLayout Orientation="Horizontal" Margin="1,3" HorizontalOptions="Center">
-                <Entry x:Name="entr_codBarras" Placeholder="Código de barras / Interno" PlaceholderColor="#B9B9B9" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
-                <!--<Button x:Name="btn_pesquisa" Text="Pesquisar" BorderWidth="2" FontAttributes="Bold" CornerRadius="15" TextColor="Black" FontSize="Small" BorderColor="#B6B6B6" BackgroundColor="#EEEEEE" Clicked="LeituraManual" ScaleY="0.7" ScaleX="0.7"/>-->
-                <!--<Switch x:Name="swt_cod" IsToggled="false" Margin="5,0,0,0" Toggled="swt_cod_Toggled"/>-->
-            </StackLayout>
-
-            <StackLayout Orientation="Horizontal" Margin="10,5,10,8">
-                <Label Text="Cód. Barras: " FontSize="16" VerticalOptions="Center"/>
-                <Label x:Name="lbl_CodBarras" Text="" FontSize="16" VerticalOptions="Center" FontAttributes="Bold"/>
-            </StackLayout>
-
-
-            <Label Text="Produtos encontrados"
-                VerticalOptions="Start" 
-                HorizontalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
 
             <ListView x:Name="ListaProdutos" HasUnevenRows="True" ItemSelected="ListaProdutos_ItemSelected" >
                 <ListView.ItemTemplate>
@@ -68,6 +52,11 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView >
+
+            <StackLayout Orientation="Horizontal" Margin="1,15" HorizontalOptions="Center">
+                <Button x:Name="btn_novoProduto" Text="Novo Produto" BorderWidth="2" FontAttributes="Bold" CornerRadius="15" TextColor="Black" FontSize="Small" BorderColor="#B6B6B6" BackgroundColor="#EEEEEE" Clicked="NovoProduto" ScaleY="0.7" ScaleX="0.7"/>
+                <!--<Switch x:Name="swt_cod" IsToggled="false" Margin="5,0,0,0" Toggled="swt_cod_Toggled"/>-->
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

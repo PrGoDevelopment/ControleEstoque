@@ -57,5 +57,10 @@ namespace ControleEstoque.View
                 await Navigation.PushModalAsync(detailPage);
             }
         }
+
+        private void NovoProduto(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new PaginaNovoProduto());
+        }
     }
 }

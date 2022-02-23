@@ -45,3 +45,4 @@ C:\Users\usuario\source\repos\ControleEstoque\ControleEstoque\ControleEstoque\Co
 C:\Users\usuario\source\repos\ControleEstoque\ControleEstoque\ControleEstoque\ControleEstoque\obj\Debug\netstandard2.0\ref\ControleEstoque.dll
 C:\Users\usuario\source\repos\ControleEstoque\ControleEstoque\ControleEstoque\ControleEstoque\obj\Debug\netstandard2.0\ControleEstoque.pdb
 C:\Users\usuario\source\repos\ControleEstoque\ControleEstoque\ControleEstoque\ControleEstoque\obj\Debug\netstandard2.0\View\PaginaAlterarEstoque.xaml.g.cs
+C:\Users\usuario\source\repos\ControleEstoque\ControleEstoque\ControleEstoque\ControleEstoque\obj\Debug\netstandard2.0\View\PaginaNovoProduto.xaml.g.cs

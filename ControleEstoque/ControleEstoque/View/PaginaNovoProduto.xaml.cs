@@ -10,14 +10,14 @@ using Xamarin.Forms.Xaml;
 namespace ControleEstoque.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PaginaAlterarEstoque : ContentPage
+    public partial class PaginaNovoProduto : ContentPage
     {
-        public PaginaAlterarEstoque()
+        public PaginaNovoProduto()
         {
             InitializeComponent();
         }
 
-        private void AlterarEstoque(object sender, EventArgs e)
+        private void salvarProduto(object sender, EventArgs e)
         {
 
         }
