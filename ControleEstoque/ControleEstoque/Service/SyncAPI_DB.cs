@@ -67,9 +67,9 @@ namespace ControleEstoque.Service
             return true;
         }
 
-        public static async Task<bool> postProduto_InOut()
+        public static async Task<bool> syncProduto_InOut(T_ESTOQUE estoque)
         {
-
+            await API.ApiEstoque.postProduto("http://192.168.15.20:5000/api/Estoque", estoque);
             return true;
         }
     }

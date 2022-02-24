@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ControleEstoque.API
@@ -38,7 +39,31 @@ namespace ControleEstoque.API
             }
         }
 
-        public static async Task<bool> Enviar_Itens_Pedido(string URI, List<ItemPedidoVenda> ipvv)
+        public static async Task<int> postProduto(string URI, T_ESTOQUE estoque)
+        {
+            int statusCode = 0;
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var serializedUsuario = JsonConvert.SerializeObject(estoque);
+                    var content = new StringContent(serializedUsuario, Encoding.UTF8, "application/json");
+                    var result = await client.PostAsync(URI, content);
+
+                    string retorno = await result.Content.ReadAsStringAsync();
+                    statusCode = (int)result.StatusCode;
+                }
+            }
+            catch (Exception)
+            {
+                return statusCode;
+            }
+
+            return statusCode;
+        }
+
+        public static async Task<bool> postListaProdutos(string URI, List<T_ESTOQUE> ipvv)
         {
             try
             {
@@ -47,7 +72,7 @@ namespace ControleEstoque.API
                     var serializedUsuario = JsonConvert.SerializeObject(ipvv);
                     var content = new StringContent(serializedUsuario, Encoding.UTF8, "application/json");
                     var result = await client.PostAsync(URI, content);
-                    App.StatusCode = (int)result.StatusCode;
+                    //App.StatusCode = (int)result.StatusCode;
                     return true;
                 }
             }

@@ -47,6 +47,7 @@ namespace ControleEstoque.View
                     if (await App.Database.insertEstoque(estoque))
                     {
                         await DisplayAlert("Controle Estoque", "O produto " + estoque.Nome + " foi adicionado com sucesso!", "Ok");
+                        await Service.SyncAPI_DB.syncProduto_InOut(estoque);
                         await Navigation.PopModalAsync();
                     }
                     else
