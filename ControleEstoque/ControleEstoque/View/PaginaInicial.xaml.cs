@@ -71,7 +71,8 @@ namespace ControleEstoque.View
         private async void SincronizarTodos(object sender, EventArgs e)
         {
             lst_Estoque = await App.Database.getEstoque();
-            await API.ApiEstoque.postListaProdutos("http://192.168.15.20:5000/api/Estoque", lst_Estoque);
+            // PEGAR INFORMAÇÕES DO API E RETIRAR AS INFORMAÇÕES REPETIDAS ANTES DE ENVIAR
+            await API.ApiEstoque.postListaProdutos("http://192.168.15.20:5000/api/Estoque/listaProdutos", lst_Estoque);
         }
     }
 }
