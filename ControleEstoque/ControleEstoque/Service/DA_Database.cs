@@ -29,6 +29,11 @@ namespace ControleEstoque.Service
             return sqliteconnection.Table<Model.T_ESTOQUE>().ToListAsync();
         }
 
+        public Task<List<Model.T_ESTOQUE>> getUltimoProduto()
+        {
+            return sqliteconnection.QueryAsync<Model.T_ESTOQUE>("SELECT * FROM T_ESTOQUE ORDER BY Id DESC LIMIT 1;");
+        }
+
         public async Task<bool> insertEstoque(Model.T_ESTOQUE estoque)
         {
             try

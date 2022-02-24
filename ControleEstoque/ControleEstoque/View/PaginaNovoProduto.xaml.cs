@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControleEstoque.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,12 +48,18 @@ namespace ControleEstoque.View
                     if (await App.Database.insertEstoque(estoque))
                     {
                         await DisplayAlert("Controle Estoque", "O produto " + estoque.Nome + " foi adicionado com sucesso!", "Ok");
-                        await Service.SyncAPI_DB.syncProduto_InOut(estoque);
+
+
+                        List<T_ESTOQUE> ultimoProdutoInserido = new List<T_ESTOQUE>();
+                        ultimoProdutoInserido = await App.Database.getUltimoProduto();
+                        await Service.SyncAPI_DB.syncProduto_InOut(ultimoProdutoInserido[0]);
+
                         await Navigation.PopModalAsync();
                     }
                     else
                         await DisplayAlert("Controle Estoque", "Erro ao tentar adicionar o produto " + estoque.Nome, "Ok");
-                }else
+                }
+                else
                     await DisplayAlert("Controle Estoque", "Por favor preencha todos os campos!", "Ok");
             });
         }
