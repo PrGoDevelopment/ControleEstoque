@@ -5,6 +5,7 @@ public class MonoPackageManager_Resources {
 		"ControleEstoque.Android.dll",
 		"ControleEstoque.dll",
 		"FormsViewGroup.dll",
+		"Newtonsoft.Json.dll",
 		"PCLExt.FileStorage.Abstractions.dll",
 		"PCLExt.FileStorage.dll",
 		"SQLite-net.dll",

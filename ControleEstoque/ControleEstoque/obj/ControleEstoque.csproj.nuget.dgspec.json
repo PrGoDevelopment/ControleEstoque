@@ -1,25 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pmg19\\source\\repos\\_GitHub\\ControleEstoque\\ControleEstoque\\ControleEstoque\\ControleEstoque.csproj": {}
+    "C:\\Users\\usuario\\source\\repos\\ControleEstoque\\ControleEstoque\\ControleEstoque\\ControleEstoque\\ControleEstoque.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pmg19\\source\\repos\\_GitHub\\ControleEstoque\\ControleEstoque\\ControleEstoque\\ControleEstoque.csproj": {
+    "C:\\Users\\usuario\\source\\repos\\ControleEstoque\\ControleEstoque\\ControleEstoque\\ControleEstoque\\ControleEstoque.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pmg19\\source\\repos\\_GitHub\\ControleEstoque\\ControleEstoque\\ControleEstoque\\ControleEstoque.csproj",
+        "projectUniqueName": "C:\\Users\\usuario\\source\\repos\\ControleEstoque\\ControleEstoque\\ControleEstoque\\ControleEstoque\\ControleEstoque.csproj",
         "projectName": "ControleEstoque",
-        "projectPath": "C:\\Users\\pmg19\\source\\repos\\_GitHub\\ControleEstoque\\ControleEstoque\\ControleEstoque\\ControleEstoque.csproj",
-        "packagesPath": "C:\\Users\\pmg19\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pmg19\\source\\repos\\_GitHub\\ControleEstoque\\ControleEstoque\\ControleEstoque\\obj\\",
+        "projectPath": "C:\\Users\\usuario\\source\\repos\\ControleEstoque\\ControleEstoque\\ControleEstoque\\ControleEstoque\\ControleEstoque.csproj",
+        "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\usuario\\source\\repos\\ControleEstoque\\ControleEstoque\\ControleEstoque\\ControleEstoque\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "H:\\Programs\\Microsoft\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\pmg19\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -52,6 +51,10 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             },
             "PCLExt.FileStorage": {
               "target": "Package",
