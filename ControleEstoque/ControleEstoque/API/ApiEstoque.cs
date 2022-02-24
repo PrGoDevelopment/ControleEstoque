@@ -60,7 +60,7 @@ namespace ControleEstoque.API
                 return statusCode;
             }
 
-            return statusCode; //if (statusCode >= 200 && statusCode <= 207) -> true
+            return statusCode;
         }
 
         public static async Task<bool> postListaProdutos(string URI, List<T_ESTOQUE> ipvv)

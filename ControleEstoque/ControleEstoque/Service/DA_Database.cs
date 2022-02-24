@@ -38,7 +38,12 @@ namespace ControleEstoque.Service
         {
             try
             {
-                await sqliteconnection.QueryAsync<Model.T_ESTOQUE>("INSERT OR IGNORE INTO T_ESTOQUE (Nome, Quantidade) VALUES('" + estoque.Nome + "', '" + estoque.Quantidade + "')");
+                if(estoque.Id != 0)
+                    // PRODUTOS QUE VEM DO SERVIDOR JÁ POSSUEM ID
+                    await sqliteconnection.QueryAsync<Model.T_ESTOQUE>("INSERT OR IGNORE INTO T_ESTOQUE (Id, Nome, Quantidade) VALUES('" + estoque.Id + "','" + estoque.Nome + "', '" + estoque.Quantidade + "')");
+                else
+                    // PARA PRODUTOS CADASTRADOS LOCALMENTE, ID AUTOMÁTICO
+                    await sqliteconnection.QueryAsync<Model.T_ESTOQUE>("INSERT OR IGNORE INTO T_ESTOQUE (Nome, Quantidade) VALUES('" + estoque.Nome + "', '" + estoque.Quantidade + "')");
                 return true;
             }
             catch (Exception)

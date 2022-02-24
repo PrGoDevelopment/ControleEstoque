@@ -42,6 +42,7 @@ namespace ControleEstoque.Service
 
                 if (!produtoExiste)
                 {
+                    estoque.Id = item.Id;
                     estoque.Nome = item.Nome;
                     estoque.Quantidade = item.Quantidade;
 
@@ -69,7 +70,7 @@ namespace ControleEstoque.Service
 
         public static async Task<bool> syncProduto_InOut(T_ESTOQUE estoque)
         {
-            await API.ApiEstoque.postProduto("http://192.168.15.20:5000/api/Estoque", estoque);
+            
             return true;
         }
     }
