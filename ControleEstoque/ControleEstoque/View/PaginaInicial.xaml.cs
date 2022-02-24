@@ -27,30 +27,28 @@ namespace ControleEstoque.View
 
             //await API.ApiEstoque.RunAsync();
             //lst_Estoque = await API.ApiEstoque.getEstoque("http://localhost:20727/api/Estoque");
-            lst_Estoque = await API.ApiEstoque.getEstoque("http://192.168.15.20:5000/api/Estoque");
+            //lst_Estoque = await API.ApiEstoque.getEstoque("http://192.168.15.20:5000/api/Estoque");
 
-            string stop = "";
-
-            //lst_Estoque = await App.Database.getEstoque();
+            lst_Estoque = await App.Database.getEstoque();
             ListaProdutos.ItemsSource = lst_Estoque;
 
-            if (lst_Estoque.Count() == 0)
-                carregarProdutosTeste();
+            //if (lst_Estoque.Count() == 0)
+            //    carregarProdutosTeste();
         }
 
-        public void carregarProdutosTeste()
-        {
-            Device.BeginInvokeOnMainThread(async () =>
-            {
-                for (int i = 0; i < 10; i++)
-                {
-                    estoque.Nome = "Produto " + (i + 1).ToString();
-                    estoque.Quantidade = 1;
+        //public void carregarProdutosTeste()
+        //{
+        //    Device.BeginInvokeOnMainThread(async () =>
+        //    {
+        //        for (int i = 0; i < 10; i++)
+        //        {
+        //            estoque.Nome = "Produto " + (i + 1).ToString();
+        //            estoque.Quantidade = 1;
 
-                    await App.Database.insertEstoque(estoque);
-                }
-            });
-        }
+        //            await App.Database.insertEstoque(estoque);
+        //        }
+        //    });
+        //}
 
         private async void ListaProdutos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {

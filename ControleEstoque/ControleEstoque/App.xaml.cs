@@ -32,6 +32,10 @@ namespace ControleEstoque
 
         protected override void OnStart()
         {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                await Service.SyncAPI_DB.syncInformacao_OutIn();
+            });
         }
 
         protected override void OnSleep()
