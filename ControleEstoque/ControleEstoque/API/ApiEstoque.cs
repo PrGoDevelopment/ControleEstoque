@@ -63,23 +63,26 @@ namespace ControleEstoque.API
             return statusCode;
         }
 
-        public static async Task<bool> postListaProdutos(string URI, List<T_ESTOQUE> ipvv)
+        public static async Task<int> postListaProdutos(string URI, List<T_ESTOQUE> estoque)
         {
+            int statusCode = 0;
+
             try
             {
                 using (var client = new HttpClient())
                 {
-                    var serializedUsuario = JsonConvert.SerializeObject(ipvv);
+                    var serializedUsuario = JsonConvert.SerializeObject(estoque);
                     var content = new StringContent(serializedUsuario, Encoding.UTF8, "application/json");
                     var result = await client.PostAsync(URI, content);
-                    //App.StatusCode = (int)result.StatusCode;
-                    return true;
+                    statusCode = (int)result.StatusCode;
                 }
             }
             catch (Exception)
             {
-                return false;
+                return statusCode;
             }
+
+            return statusCode;
         }
     }
 }

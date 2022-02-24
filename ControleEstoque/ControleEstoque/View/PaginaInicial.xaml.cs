@@ -67,5 +67,11 @@ namespace ControleEstoque.View
         {
             Navigation.PushModalAsync(new PaginaNovoProduto());
         }
+
+        private async void SincronizarTodos(object sender, EventArgs e)
+        {
+            lst_Estoque = await App.Database.getEstoque();
+            await API.ApiEstoque.postListaProdutos("http://192.168.15.20:5000/api/Estoque", lst_Estoque);
+        }
     }
 }

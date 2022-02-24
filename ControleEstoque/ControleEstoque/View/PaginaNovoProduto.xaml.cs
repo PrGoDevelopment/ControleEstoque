@@ -47,17 +47,16 @@ namespace ControleEstoque.View
                 {
                     if (await App.Database.insertEstoque(estoque))
                     {
-                        await DisplayAlert("Controle Estoque", "O produto " + estoque.Nome + " foi adicionado com sucesso!", "Ok");
-
                         // SINCRONIZANDO ÚLTIMO PRODUTO REGISTRADO NO BANCO DE DADOS COM O API.
-                        List<T_ESTOQUE> ultimoProdutoInserido = new List<T_ESTOQUE>();
-                        ultimoProdutoInserido = await App.Database.getUltimoProduto();
-                        int statusCode = await API.ApiEstoque.postProduto("http://192.168.15.20:5000/api/Estoque", ultimoProdutoInserido[0]);
-                        if (statusCode >= 200 && statusCode <= 207)
-                            await DisplayAlert("Controle Estoque", "Sucesso ao enviar dados para o servidor.", "Ok");
-                        else
-                            await DisplayAlert("Controle Estoque", "Erro ao enviar dados para o servidor, certifique se de que o servidor está online.\nClique no botão SINCRONIZAR quando o servidor estiver online.", "Ok");
+                        //List<T_ESTOQUE> ultimoProdutoInserido = new List<T_ESTOQUE>();
+                        //ultimoProdutoInserido = await App.Database.getUltimoProduto();
+                        //int statusCode = await API.ApiEstoque.postProduto("http://192.168.15.20:5000/api/Estoque", ultimoProdutoInserido[0]);
+                        //if (statusCode >= 200 && statusCode <= 207)
+                        //    await DisplayAlert("Controle Estoque", "Sucesso ao enviar dados para o servidor.", "Ok");
+                        //else
+                        //    await DisplayAlert("Controle Estoque", "Erro ao enviar dados para o servidor, certifique se de que o servidor está online.\nClique no botão SINCRONIZAR quando o servidor estiver online.", "Ok");
 
+                        await DisplayAlert("Controle Estoque", "O produto " + estoque.Nome + " foi adicionado com sucesso!", "Ok");
                         await Navigation.PopModalAsync();
                     }
                     else
