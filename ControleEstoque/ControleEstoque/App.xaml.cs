@@ -34,7 +34,7 @@ namespace ControleEstoque
         {
             Device.BeginInvokeOnMainThread(async () =>
             {
-                await Service.SyncAPI_DB.syncInformacao_OutIn();
+                await Service.SyncAPI_DB.syncInformacao_API_to_DB();
             });
         }
 
@@ -44,6 +44,13 @@ namespace ControleEstoque
 
         protected override void OnResume()
         {
+        }
+
+        public static string enderecoIP = "";
+        public static string EnderecoIP
+        {
+            get { return enderecoIP; }
+            set { enderecoIP = value; }
         }
     }
 }

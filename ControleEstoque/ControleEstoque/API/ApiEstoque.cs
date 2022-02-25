@@ -84,5 +84,29 @@ namespace ControleEstoque.API
 
             return statusCode;
         }
+
+        public static async Task<int> putProduto(string URI, T_ESTOQUE estoque)
+        {
+            int statusCode = 0;
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var serializedUsuario = JsonConvert.SerializeObject(estoque);
+                    var content = new StringContent(serializedUsuario, Encoding.UTF8, "application/json");
+                    var result = await client.PutAsync(URI, content);
+
+                    string retorno = await result.Content.ReadAsStringAsync();
+                    statusCode = (int)result.StatusCode;
+                }
+            }
+            catch (Exception)
+            {
+                return statusCode;
+            }
+
+            return statusCode;
+        }
     }
 }

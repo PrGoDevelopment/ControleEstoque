@@ -56,7 +56,7 @@ namespace ControleEstoque.Service
         {
             try
             {
-                await sqliteconnection.QueryAsync<Model.T_ESTOQUE>("UPDATE T_ESTOQUE SET Quantidade = '" + estoque.Quantidade + "' WHERE Id = '" + estoque.Id.ToString() + "'");
+                await sqliteconnection.QueryAsync<Model.T_ESTOQUE>("UPDATE T_ESTOQUE SET Nome = '" + estoque.Nome + "', Quantidade = '" + estoque.Quantidade + "' WHERE Id = '" + estoque.Id.ToString() + "'");
 
                 return true;
             }

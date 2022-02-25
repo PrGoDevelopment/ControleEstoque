@@ -19,6 +19,8 @@ namespace ControleEstoque.View
         public PaginaInicial()
         {
             InitializeComponent();
+
+            App.EnderecoIP = "192.168.1.108";
         }
 
         protected async override void OnAppearing()
@@ -27,7 +29,7 @@ namespace ControleEstoque.View
 
             //await API.ApiEstoque.RunAsync();
             //lst_Estoque = await API.ApiEstoque.getEstoque("http://localhost:20727/api/Estoque");
-            //lst_Estoque = await API.ApiEstoque.getEstoque("http://192.168.15.20:5000/api/Estoque");
+            //lst_Estoque = await API.ApiEstoque.getEstoque("http://" + App.EnderecoIP + ":5000/api/Estoque");
 
             lst_Estoque = await App.Database.getEstoque();
             ListaProdutos.ItemsSource = lst_Estoque;
@@ -70,9 +72,7 @@ namespace ControleEstoque.View
 
         private async void SincronizarTodos(object sender, EventArgs e)
         {
-            lst_Estoque = await App.Database.getEstoque();
-            // PEGAR INFORMAÇÕES DO API E RETIRAR AS INFORMAÇÕES REPETIDAS ANTES DE ENVIAR
-            await API.ApiEstoque.postListaProdutos("http://192.168.15.20:5000/api/Estoque/listaProdutos", lst_Estoque);
+            await Service.SyncAPI_DB.syncProduto_DB_to_API();
         }
     }
 }
