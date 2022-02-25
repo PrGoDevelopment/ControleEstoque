@@ -97,7 +97,6 @@ namespace ControleEstoque.API
                     var content = new StringContent(serializedUsuario, Encoding.UTF8, "application/json");
                     var result = await client.PutAsync(URI, content);
 
-                    string retorno = await result.Content.ReadAsStringAsync();
                     statusCode = (int)result.StatusCode;
                 }
             }
