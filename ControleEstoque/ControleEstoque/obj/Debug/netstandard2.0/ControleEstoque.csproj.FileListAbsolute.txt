@@ -55,15 +55,11 @@ C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEsto
 C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\bin\Debug\netstandard2.0\ref\ControleEstoque.dll
 C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\bin\Debug\netstandard2.0\ControleEstoque.pdb
 C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\bin\Debug\netstandard2.0\Mono.Android.dll
-C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\bin\Debug\netstandard2.0\Mono.Android.pdb
-C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\bin\Debug\netstandard2.0\Mono.Android.xml
 C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\obj\Debug\netstandard2.0\ControleEstoque.csproj.AssemblyReference.cache
 C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\obj\Debug\netstandard2.0\ControleEstoque.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
-C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\obj\Debug\netstandard2.0\View\PaginaAlterarEstoque.xaml.g.cs
 C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\obj\Debug\netstandard2.0\View\PaginaInicial.xaml.g.cs
-C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\obj\Debug\netstandard2.0\View\PaginaNovoProduto.xaml.g.cs
 C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\obj\Debug\netstandard2.0\ControleEstoque.AssemblyInfoInputs.cache
 C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\obj\Debug\netstandard2.0\ControleEstoque.AssemblyInfo.cs
 C:\Users\pmg19\source\repos\_GitHub\ControleEstoque\ControleEstoque\ControleEstoque\obj\Debug\netstandard2.0\ControleEstoque.csproj.CoreCompileInputs.cache

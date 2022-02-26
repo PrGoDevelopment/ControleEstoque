@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,11 +11,13 @@ namespace ControleEstoque.API
 {
     public class ApiEstoque
     {
-        public static async Task<List<T_ESTOQUE>> getEstoque(string URI)
+        private readonly static int timeSeconds = 5; // DEFINIÇÃO DO TIMESPAN EM SEGUNDOS
+
+        public static async Task<List<ESTOQUE>> GetEstoque(string URI)
         {
             using (var client = new HttpClient())
             {
-                //HttpResponseMessage response = await client.GetAsync(URI);
+                client.Timeout = TimeSpan.FromSeconds(timeSeconds);
                 try
                 {
                     HttpResponseMessage response = await client.GetAsync(URI);
@@ -24,7 +25,7 @@ namespace ControleEstoque.API
                     if (response.IsSuccessStatusCode)
                     {
                         var ProdutoJsonString = await response.Content.ReadAsStringAsync();
-                        return JsonConvert.DeserializeObject<T_ESTOQUE[]>(ProdutoJsonString).ToList();
+                        return JsonConvert.DeserializeObject<ESTOQUE[]>(ProdutoJsonString).ToList();
                     }
                     else
                     {
@@ -39,7 +40,7 @@ namespace ControleEstoque.API
             }
         }
 
-        public static async Task<int> postProduto(string URI, T_ESTOQUE estoque)
+        public static async Task<int> PostProduto(string URI, ESTOQUE estoque)
         {
             int statusCode = 0;
 
@@ -47,6 +48,8 @@ namespace ControleEstoque.API
             {
                 using (var client = new HttpClient())
                 {
+                    client.Timeout = TimeSpan.FromSeconds(timeSeconds);
+
                     var serializedUsuario = JsonConvert.SerializeObject(estoque);
                     var content = new StringContent(serializedUsuario, Encoding.UTF8, "application/json");
                     var result = await client.PostAsync(URI, content);
@@ -63,7 +66,7 @@ namespace ControleEstoque.API
             return statusCode;
         }
 
-        public static async Task<int> postListaProdutos(string URI, List<T_ESTOQUE> estoque)
+        public static async Task<int> PostListaProdutos(string URI, List<ESTOQUE> estoque)
         {
             int statusCode = 0;
 
@@ -71,9 +74,12 @@ namespace ControleEstoque.API
             {
                 using (var client = new HttpClient())
                 {
+                    client.Timeout = TimeSpan.FromSeconds(timeSeconds);
+
                     var serializedUsuario = JsonConvert.SerializeObject(estoque);
                     var content = new StringContent(serializedUsuario, Encoding.UTF8, "application/json");
                     var result = await client.PostAsync(URI, content);
+
                     statusCode = (int)result.StatusCode;
                 }
             }
@@ -85,7 +91,7 @@ namespace ControleEstoque.API
             return statusCode;
         }
 
-        public static async Task<int> putProduto(string URI, T_ESTOQUE estoque)
+        public static async Task<int> PutProduto(string URI, ESTOQUE estoque)
         {
             int statusCode = 0;
 
@@ -93,6 +99,33 @@ namespace ControleEstoque.API
             {
                 using (var client = new HttpClient())
                 {
+                    client.Timeout = TimeSpan.FromSeconds(timeSeconds);
+
+                    var serializedUsuario = JsonConvert.SerializeObject(estoque);
+                    var content = new StringContent(serializedUsuario, Encoding.UTF8, "application/json");
+                    var result = await client.PutAsync(URI, content);
+
+                    statusCode = (int)result.StatusCode;
+                }
+            }
+            catch (Exception)
+            {
+                return statusCode;
+            }
+
+            return statusCode;
+        }
+
+        public static async Task<int> PutListaProdutos(string URI, List<ESTOQUE> estoque)
+        {
+            int statusCode = 0;
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromSeconds(timeSeconds);
+
                     var serializedUsuario = JsonConvert.SerializeObject(estoque);
                     var content = new StringContent(serializedUsuario, Encoding.UTF8, "application/json");
                     var result = await client.PutAsync(URI, content);

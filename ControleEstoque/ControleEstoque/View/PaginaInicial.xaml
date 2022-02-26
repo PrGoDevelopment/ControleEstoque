@@ -1,63 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ControleEstoque.View.PaginaInicial">
-    <ContentPage.Content>
-        <StackLayout Padding="3,0">
-            <StackLayout Orientation="Horizontal" Margin="3,15" HorizontalOptions="Center">
-                <Label Text="Controle Estoque" FontSize="20" VerticalOptions="Center" TextColor="Black"/>
-            </StackLayout>
+             x:Class="ControleEstoque.View.PaginaInicial"
+             xmlns:viewModel="clr-namespace:ControleEstoque.ViewModel">
 
-            <ListView x:Name="ListaProdutos" HasUnevenRows="True" ItemSelected="ListaProdutos_ItemSelected" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell >
-                            <StackLayout  Orientation="Horizontal" VerticalOptions="FillAndExpand" Margin="0,5,0,5">
+    <ContentPage.BindingContext>
+        <viewModel:PaginaInicialVM></viewModel:PaginaInicialVM>
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="3,0">
+        <!--TITULO-->
+        <StackLayout Orientation="Horizontal" Margin="3" HorizontalOptions="Center">
+            <Label Text="Controle Estoque" FontSize="20" VerticalOptions="Center" TextColor="Black"/>
+        </StackLayout>
+
+        <!--CAMPOS DE PREENCHIMENTO E BOTÃO SAVE-->
+        <StackLayout Orientation="Horizontal" Margin="1,5" HorizontalOptions="Center">
+            <StackLayout Orientation="Vertical" Margin="1,3" HorizontalOptions="Center">
+                <Entry x:Name="entr_nomeProduto" Placeholder="Nome do Produto" Text="{Binding NomeProduto}"></Entry>
+                <Entry x:Name="entr_qtdProduto" Placeholder="Quandidade em estoque" Text="{Binding QuantidadeProduto}" Keyboard="Numeric"></Entry>
+            </StackLayout>
+            <Button x:Name="btn_novoProduto" Text="Salvar" BorderWidth="2" FontAttributes="Bold" CornerRadius="15" TextColor="Black" FontSize="Medium" BorderColor="#B6B6B6" BackgroundColor="#EEEEEE" Command="{Binding InsertEstoque_IdAuto}" Clicked="ValidarNome" ScaleY="0.8" ScaleX="0.8"/>
+        </StackLayout>
+
+        <!--LISTVIEW-->
+        <ListView x:Name="ListaProdutos" ItemsSource="{Binding ListEstoque}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell >
+                        <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout  Orientation="Horizontal" VerticalOptions="FillAndExpand" Margin="0,3">
 
                                 <Grid Margin="2">
 
-                                    <!-- Colunas -->
+                                    <!-- COLUNAS -->
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <!-- Linhas -->
+                                    <!-- LINHAS -->
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="1"/>
                                     </Grid.RowDefinitions>
 
-                                    <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="5">
-                                        <!-- Código/Descricao -->
+                                    <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="5,2">
+                                        <!-- ID/NOME -->
                                         <StackLayout Orientation="Horizontal">
                                             <Label Text="Id: " FontSize="Small" TextColor="Black" Margin="0,0,2,0" FontAttributes="Bold"/>
                                             <Label Text="{Binding Id}" FontSize="Small" TextColor="Black" Margin="0,0,2,0" LineBreakMode="NoWrap"/>
                                             <Label Text="Nome: " FontSize="Small" TextColor="Black" Margin="10,0,2,0" FontAttributes="Bold" />
                                             <Label Text="{Binding Nome}" FontSize="Small" TextColor="Black" Margin="0,0,2,0" LineBreakMode="NoWrap"/>
                                         </StackLayout>
-
+                                        <!--QUANTIDADE-->
                                         <StackLayout  Orientation="Horizontal">
                                             <Label Text="Quantidade: " FontSize="Small" TextColor="Black" Margin="0,0,2,0" FontAttributes="Bold"/>
                                             <Label Text="{Binding Quantidade}" FontSize="Small" TextColor="Black" Margin="0" LineBreakMode="TailTruncation" WidthRequest="190"/>
                                         </StackLayout>
-                                        <!--<StackLayout Orientation="Horizontal" IsVisible="{Binding IsVisible}">
-                                                    <Label Text="15/11/19 à 30/11/19" FontSize="Large" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" VerticalTextAlignment="Center"/>
-                                                </StackLayout>-->
                                     </StackLayout>
                                     <BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Red" WidthRequest="500"/>
                                 </Grid>
                             </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView >
 
-            <StackLayout Orientation="Horizontal" Margin="1,15" HorizontalOptions="Center">
-                <Button x:Name="btn_sincronizar" Text="Sincronizar" BorderWidth="2" FontAttributes="Bold" CornerRadius="15" TextColor="Black" FontSize="Medium" BorderColor="#B6B6B6" BackgroundColor="#EEEEEE" Clicked="SincronizarTodos" ScaleY="0.8" ScaleX="0.8"/>
-                <Button x:Name="btn_novoProduto" Text="Novo Produto" BorderWidth="2" FontAttributes="Bold" CornerRadius="15" TextColor="Black" FontSize="Medium" BorderColor="#B6B6B6" BackgroundColor="#EEEEEE" Clicked="NovoProduto" ScaleY="0.8" ScaleX="0.8"/>
-                <!--<Switch x:Name="swt_cod" IsToggled="false" Margin="5,0,0,0" Toggled="swt_cod_Toggled"/>-->
-            </StackLayout>
+                            <!--INVOCADOR DO DisplayPromptAsync-->
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="UpdateEstoque_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView >
+        
+        <!--BOTÃO DE SINCRONIZAÇÃO-->
+        <StackLayout Orientation="Vertical" Margin="1,1,1,3" HorizontalOptions="Center">
+            <Button x:Name="btn_sincronizar" Text="Sincronizar" BorderWidth="2" FontAttributes="Bold" CornerRadius="15" TextColor="Black" FontSize="Medium" BorderColor="#B6B6B6" BackgroundColor="#EEEEEE" Clicked="SincronizarTodos" ScaleY="0.8" ScaleX="0.8"/>
         </StackLayout>
-    </ContentPage.Content>
+        
+        <!--STATUS DE COMUNICAÇÃO COM O API-->
+        <StackLayout Orientation="Horizontal" Margin="1,0,1,5" HorizontalOptions="Center">
+            <Label Text="Status: " FontSize="14" VerticalOptions="Center" TextColor="Black"/>
+            <Label x:Name="lbl_status" Text="--" FontSize="14" VerticalOptions="Center"/>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>
